@@ -1,0 +1,26 @@
+# argo-cd chart values. Kept minimal: single replica for dev,
+# server reachable via port-forward only (no public load balancer).
+global:
+  domain: argocd.local
+
+configs:
+  cm:
+    # Reconcile every 3 minutes; webhooks can make this instant later.
+    timeout.reconciliation: 180s
+
+server:
+  service:
+    type: ClusterIP
+  metrics:
+    enabled: true
+
+controller:
+  metrics:
+    enabled: true
+
+repoServer:
+  metrics:
+    enabled: true
+
+dex:
+  enabled: false

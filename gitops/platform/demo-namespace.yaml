@@ -1,0 +1,11 @@
+# Pod Security Admission enforces the "restricted" profile: no root,
+# no privilege escalation, no host access, seccomp required.
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: demo
+  labels:
+    pod-security.kubernetes.io/enforce: restricted
+    pod-security.kubernetes.io/enforce-version: latest
+    pod-security.kubernetes.io/audit: restricted
+    pod-security.kubernetes.io/warn: restricted

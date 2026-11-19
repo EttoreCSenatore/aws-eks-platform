@@ -1,0 +1,27 @@
+# Terraform
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+*.tfplan
+tfplan
+plan.txt
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraformrc
+terraform.rc
+
+# Local backend config holds the account-specific bucket name
+backend.hcl
+
+# Scanner output
+*.sarif
+results.sarif
+
+# OS / editors
+.DS_Store
+.idea/
+.vscode/

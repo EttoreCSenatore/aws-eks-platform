@@ -1,0 +1,23 @@
+# Accepted risks. Every skip needs a reason a reviewer can challenge.
+framework:
+  - terraform
+  - kubernetes
+  - github_actions
+download-external-modules: false
+skip-check:
+  # Registry modules are pinned by version and recorded in .terraform.lock.hcl;
+  # Dependabot proposes upgrades. Commit-hash pinning would block that flow.
+  - CKV_TF_1
+  # Only the first three AZs (alphabetical) are used; a newly added AZ sorts
+  # after them and cannot change the subnet layout.
+  - CKV_AWS_394
+  # State bucket: versioning + KMS + TLS-only + public access block are on.
+  # Access logs, event notifications and cross-region replication add a second
+  # bucket and cost that a single-account demo does not need. Enable them
+  # (or CloudTrail S3 data events) for production accounts.
+  - CKV_AWS_18
+  - CKV2_AWS_62
+  - CKV_AWS_144
+  # The destroy workflow's only input is a typed confirmation string, not a
+  # build parameter.
+  - CKV_GHA_7
