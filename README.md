@@ -14,7 +14,7 @@ Prometheus · Grafana · Checkov · TFLint · Gitleaks
 ## Architecture
 
 ```mermaid
-flowchart LR
+flowchart TB
   dev[Developer] -->|pull request| gh[GitHub]
 
   subgraph ci[GitHub Actions]
